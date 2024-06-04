@@ -82,9 +82,9 @@ In the final step, I have deployed a webapp using Bootstrap as a front-end and F
 The webapp includes a few charts regarding energy generation. The site also loads the trained ML model which accepts use
 r input of the format :
 **fossil, geo, hydro, nuclear, secondary, solar, wind, population, state** where 
-> *fossil,geo, ..., wind* represent total energy generation in a given month (in MWh), 
-> *population* represents estimate of the absolute population in a state, and 
-> *state* represens a 2-character representation of the state in which to estimate cost.
+> * *fossil,geo, ..., wind* represent total energy generation in a given month (in MWh), 
+> * *population* represents estimate of the absolute population in a state, and 
+> * *state* represens a 2-character representation of the state in which to estimate cost.
 xls
 
 ## Dataset list and other important files
