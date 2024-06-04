@@ -53,6 +53,7 @@ The details for this analysis can be found in my ipynb html file.
 ### Step 3 - Machine Learning Pipeline
 
 Once the data is analyzed - the main objective I realized was the importance of being able to estimate energy prices to consumers, e.g. if a company desired to enter into the green energy market, how would it impact the energy market, and thus can they estimate in which state to setup their facilities to maximize profits?
+
 The ML model selected was a Linear Regression Model. The variables passed to the dataset included:
 > * Energy production in a particular state for fossil fuels
 > * Energy production in a particular state for geothermal energy generation
@@ -64,6 +65,7 @@ The ML model selected was a Linear Regression Model. The variables passed to the
 > * Population of a state (estimated usig linear interpolation)
 
 Date is not included as a variable as we want to estimate price based solely on existing population and energy generation and remain time-agnostic. This is also the reason why prices calculated are inflation-adjusted.
+
 The labels we want to estimate are:
 > * Inflation-adjusted price of electricity for commercial customers ( cents/kWh of electricity) 
 > * Inflation-adjusted price of electricity for industrial customers ( cents/kWh ) 
@@ -79,7 +81,10 @@ The ML model trained has an RMSE score of ~1.3 cents/kWh and an R2 score of arou
 In the final step, I have deployed a webapp using Bootstrap as a front-end and Flask for backend processing along with Plotly for generating graphs. 
 The webapp includes a few charts regarding energy generation. The site also loads the trained ML model which accepts use
 r input of the format :
-**fossil, geo, hydro, nuclear, secondary, solar, wind, population, state** where *fossil,geo, ..., wind* represent total energy generation in a given month (in MWh), *population* represents estimate of the absolute population in a state, and *state* represens a 2-character representation of the state in which to estimate cost.
+**fossil, geo, hydro, nuclear, secondary, solar, wind, population, state** where 
+> *fossil,geo, ..., wind* represent total energy generation in a given month (in MWh), 
+> *population* represents estimate of the absolute population in a state, and 
+> *state* represens a 2-character representation of the state in which to estimate cost.
 xls
 
 ## Dataset list and other important files
