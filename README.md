@@ -76,6 +76,21 @@ The ML model trained has an RMSE score of ~1.3 cents/kWh and an R2 score of arou
 
 ### Step 4 - Creating Web App
 
-In the final step, I have deployed a webapp using Bootstrap/ Plotly ( for graphs) as a front-end and Flask for backend processing. 
-The webapp includes a few charts regarding energy generation. The site also loads the trained ML model which accepts user input of the format :
+In the final step, I have deployed a webapp using Bootstrap as a front-end and Flask for backend processing along with Plotly for generating graphs. 
+The webapp includes a few charts regarding energy generation. The site also loads the trained ML model which accepts use
+r input of the format :
 **fossil, geo, hydro, nuclear, secondary, solar, wind, population, state** where *fossil,geo, ..., wind* represent total energy generation in a given month (in MWh), *population* represents estimate of the absolute population in a state, and *state* represens a 2-character representation of the state in which to estimate cost.
+xls
+
+## Dataset list and other important files
+### Datasets and links
+> 1. [Energy Generation Data from The US Energy Information Administration]( https://www.eia.gov/electricity/data/eia923/)
+> 2. [Energy Prices Dataset from Kaggle](https://www.kaggle.com/datasets/alistairking/electricity-prices)
+> 3. [US Census data from Wikipedia](https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_historical_population#1960%E2%80%932020,_census_data)
+> 4. [Inflation Adjusted Dollar Value](https://www.in2013dollars.com/us/inflation/2001?amount=1)
+> 5. [US two-letter state and territory abbreviations from the FAA](https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html)
+
+### Important files 
+> 1. data_cleaning.py - ETL pipeline for gathering, assimilating, cleaning and storing data back in an xls file.
+> 2. train_model.py - ML pipeline. USed to setup pipeline, load and train on processed data, calculate stats on performance and store the model for further predictions on webapp.
+> 3. run.py - The main backend script for the site. Includes scripts to load the homepage, as well as run the query through MP model to generate estimates of prices.
