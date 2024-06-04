@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+{% block title %}Results{% endblock %}
+
+{% block message %}
+    <hr />
+    <h4 class="text-center">MESSAGE</h4>
+    <p class="text-center"><i>{{query}}</i></p>
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Result</h1>
+        <ul class="list-group">
+			{% if is_pass == 1 %}
+				<h3 class="text-left mt-1000">Predicted Rates ( in cents per kWh)</h3>
+				{% for table in tables %}
+					{{ table|safe }}
+				{% endfor %}
+				<h3 class="text-left mt-1000">Closest Match to input values for {{state_sel}}</h3>
+				{% for table in closest_match %}
+					{{ table|safe }}
+				{% endfor %}
+				<h3 class="text-left mt-1000">Typical input values for {{state_sel}}</h3>
+				{% for table in typical_values %}
+					{{ table|safe }}
+				{% endfor %}
+            {% else %}
+				<h3 class="text-left">Could not parse query, please check formatting and state code and try again</h3>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
