@@ -3,12 +3,14 @@ import plotly
 import pandas as pd
 import re
 
-import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning) 
+#import warnings
+#warnings.filterwarnings("ignore") 
 
 from flask import Flask
 from flask import render_template, request, jsonify
-from plotly.graph_objs import Bar, Line
+from plotly.graph_objs import Bar,Scatter
+#from plotly.graph_objs.scatter.marker import Line
+#from plotly.graph_objs.scatter import Line
 import joblib
 
 import plotly.colors
@@ -128,9 +130,10 @@ def index():
 	graphs = graphs + [
 		{
 			'data': [
-				Line(
+				Scatter(
 					x=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-					y=h[gen_type]
+					y=h[gen_type],
+					mode='lines'
 				)
 			],
 
