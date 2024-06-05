@@ -3,6 +3,9 @@ import plotly
 import pandas as pd
 import re
 
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning) 
+
 from flask import Flask
 from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar, Line
@@ -88,9 +91,9 @@ def index():
 	cmap = plotly.colors.DEFAULT_PLOTLY_COLORS
 	color_list={gen_type_list[i] : cmap[i % len(cmap) ] for i in range(len(gen_type_list))}
 	df_state_m['date']= pd.to_datetime(df_state_m.date)
-	print(df_state_m.info())
-	print(df_state_m.head())
-	print(df_state_m[gen_type_list[0]].tolist()[:20])
+	#print(df_state_m.info())
+	#print(df_state_m.head())
+	#print(df_state_m[gen_type_list[0]].tolist()[:20])
 	#print(len(df_state_m[gen_type_list[0]].tolist()))
 	#print("Other len = ",len(df_state_m.date.tolist()))
 	# create visuals
@@ -166,10 +169,10 @@ def go():
 	query = [float(i) if en<len(query)-1 else i for en,i in enumerate(query)]
 	actual, pred = prediction(query[:7],query[7],query[8],df_state_m,model)
 	state_sel = query[8]
-	print(state_sel)
-	print(df_state_m.loc[df_state_m.state==state_sel].drop(['date','state'],axis=1))
+	#print(state_sel)
+	#print(df_state_m.loc[df_state_m.state==state_sel].drop(['date','state'],axis=1))
 	
-	print("ACTUAL",actual)
+	#print("ACTUAL",actual)
 	try :
 		typical_values= df_state_m.loc[df_state_m.state==state_sel].drop(['date','state'],axis=1).describe().loc[['mean','std']].astype(int).round(-3)
 		
