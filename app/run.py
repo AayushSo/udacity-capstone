@@ -168,6 +168,8 @@ def go():
 	state_sel = query[8]
 	print(state_sel)
 	print(df_state_m.loc[df_state_m.state==state_sel].drop(['date','state'],axis=1))
+	
+	print("ACTUAL",actual)
 	try :
 		typical_values= df_state_m.loc[df_state_m.state==state_sel].drop(['date','state'],axis=1).describe().loc[['mean','std']].astype(int).round(-3)
 		
@@ -213,7 +215,7 @@ def ml_pipeline():
 
 # ETL pipeline preparation HTML
 @app.route('/exploratory-analysis')
-def ml_pipeline():
+def exploratory_analysis():
 	return render_template('Exploratory Analysis.html')
 
 
