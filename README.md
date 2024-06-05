@@ -9,6 +9,8 @@ The project deals with the following parts:
 >	3. **Machine Learning Pipeline** : Creating a Regression pipeline to process and estimate electricity costs.
 >	4. **Creating Web App** :  Creating a basic web app to highlight our learnings 
 
+The live site is deployed via render.com and [can be found here](https://udacity-capstone-mhdl.onrender.com). It can take up to a minute to load - pleaes be patient!
+
 ## Instructions to run the webapp:
 1. Run the following commands in the project's root directory to set up your database and model.
 
