@@ -106,7 +106,6 @@ Using available data along with population statistics and inflation data, I have
 > * matplotlib==3.8.4
 > * scikit-learn==1.4.2
 > * scipy==1.11.4
-> * scipy==1.11.4
 > * plotly==5.22.0
 > * flask==2.2.2
 
