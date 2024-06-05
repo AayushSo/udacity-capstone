@@ -63,6 +63,7 @@ The ML model selected was a Linear Regression Model. The variables passed to the
 > * Energy production in a particular state for solar power 
 > * Energy production in a particular state for wind power 
 > * Population of a state (estimated usig linear interpolation)
+> * States encoded in one-hot encoding
 
 Date is not included as a variable as we want to estimate price based solely on existing population and energy generation and remain time-agnostic. This is also the reason why prices calculated are inflation-adjusted.
 
@@ -87,7 +88,28 @@ r input of the format :
 > * *state* represens a 2-character representation of the state in which to estimate cost.
 xls
 
-## Dataset list and other important files
+## Conclusion
+In this project I analyzed electricity trends in the United States from 2001 till 2023. From the data, I drew the following analysis:
+> 1. Electricity generation in the United States follows a cyclic pattern, with highs in the middle of the year followed by lows  in the beginning/ends of the year.
+> 2. Electricity production has increased since 2001 by around 10%. The majority of the increased capacity was due to addition of wind energy. Generation using fossil fuels has trended downwards, reducing by ~15% since peak generation in 2007.
+> 3. Adoption of solar energy into the mix has been slow, increasing only since 2015. California and Nevada have the largest percentage of their electricity being produced by solar energy, at around 20%.
+> 4. Per capita electricity use has trended downward since 2001, with pronounced dips during the Financial Crisis and Covid-19 Pandemic.
+> 5. Most states have adopted wind energy into their electricity mix since the beginning of the cntury. However most states still produce a bulk of their electricity using fossil fuels.
+
+Using available data along with population statistics and inflation data, I have trained an ML pipeline to estimate electricity cost per unit for a given mix of electricity generation, and population.
+
+## Project Information
+
+### Libraries used
+> * pandas==2.1.4
+> * seaborn==0.13.2
+> * matplotlib==3.8.4
+> * scikit-learn==1.4.2
+> * scipy==1.11.4
+> * scipy==1.11.4
+> * plotly==5.22.0
+> * flask==2.2.2
+
 ### Datasets and links
 > 1. [Energy Generation Data from The US Energy Information Administration]( https://www.eia.gov/electricity/data/eia923/)
 > 2. [Energy Prices Dataset from Kaggle](https://www.kaggle.com/datasets/alistairking/electricity-prices)
@@ -99,3 +121,5 @@ xls
 > 1. data_cleaning.py - ETL pipeline for gathering, assimilating, cleaning and storing data back in an xls file.
 > 2. train_model.py - ML pipeline. USed to setup pipeline, load and train on processed data, calculate stats on performance and store the model for further predictions on webapp.
 > 3. run.py - The main backend script for the site. Includes scripts to load the homepage, as well as run the query through MP model to generate estimates of prices.
+
+The project was done under the supervision of Udacity instructor as a Capstone project for [the Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025).
